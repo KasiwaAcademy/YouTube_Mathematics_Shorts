@@ -331,7 +331,7 @@ __pycache__
 *.virtual_documents
 
 # Ignore everything in the media folder
-./*/media/ 
+**/media/**
 
 # Ignore everything in Videos and Audios folders
 Video/**
