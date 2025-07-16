@@ -3,6 +3,7 @@ from manim import *
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_rate = 30
+config.media_dir = "../media"
 
 class ChangeSubjectFormula(Scene):
     def construct(self):

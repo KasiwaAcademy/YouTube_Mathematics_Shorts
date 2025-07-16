@@ -327,3 +327,12 @@ TSWLatexianTemp*
 
 # Python
 __pycache__
+*.ipynb_checkpoints
+*.virtual_documents
+
+# Ignore everything in the media folder
+./*/media/ 
+
+# Ignore everything in Videos and Audios folders
+Video/**
+Audio/**
