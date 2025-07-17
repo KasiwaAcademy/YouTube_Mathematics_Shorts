@@ -3,12 +3,21 @@ from manim import *
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_rate = 30
-config.media_dir = "../media"
 
 class ChangeSubjectFormula(Scene):
     def construct(self):
-        # Bacground color
-        self.camera.background_color = "#003300"
+        # Add background image
+        background = ImageMobject("../Image/chalk_board.jpg")
+        background.set_z_index(-1)
+        background.scale_to_fit_height(config.frame_height)
+        background.scale_to_fit_width(config.frame_width)
+        self.add(background)
+
+         # Load and position logo image
+        logo = ImageMobject("../Image/logo.png")
+        logo_corner = logo.scale(0.15)
+        logo_corner.to_corner(DR)
+        self.add(logo_corner)
 
         # Intro
         title = Tex(r"Changing the Subject of Formula").shift(UP).scale(1.5)
@@ -114,8 +123,11 @@ class ChangeSubjectFormula(Scene):
         self.play(FadeOut(text_6, final_answer))
         
         # Outro
-        text_7 = Tex(r"Thank You for Watching!").scale(1.75)
+        text_7 = Tex(r"Thank You for Watching!").to_edge(DOWN).scale(1.75)
+        logo_final = logo.move_to(ORIGIN).scale(3)
         self.play(Write(text_7))
         self.wait()
-        self.play(FadeOut(text_7))
+        self.play(Transform(logo_corner, logo_final))
+        self.wait(2)
+        self.play(FadeOut(text_7, logo_final))
         self.wait
